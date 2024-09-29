@@ -1,5 +1,5 @@
 import click
-from .config import get_mirrors, get_current_mirror, set_current_mirror
+from .config import get_mirrors, get_current_mirror, set_current_mirror,add_mirror,remove_mirror, rename_mirror
 from .mirror import test_mirrors
 
 @click.group()
@@ -43,16 +43,37 @@ def current():
     print(f"Current mirror: {current_mirror}")
 
 @cli.command()
+@click.argument("name")
+@click.argument("url")
+def add(name, url):
+    add_mirror(name, url)
+
+@cli.command()
+@click.argument("name")
+def rm(name):
+    remove_mirror(name)
+
+@cli.command()
+@click.argument("old_name")
+@click.argument("new_name")
+def rename(old_name, new_name):
+    rename_mirror(old_name, new_name)
+
+
+@cli.command()
 def help():
     help_text = """
     ppmm: Python Pip Mirror Manager
-    Usage: mm <command>
-    Commands:
-      ls          List all mirrors
-      use <name>  Switch to a specific mirror
-      test        Test all mirrors
-      current     Show current mirror
-      help        Show this help message
+    Usage: ppmm <command>
+        Commands:
+        ls                              List all mirrors
+        use <name>                      Switch to a specific mirror
+        test                            Test all mirrors
+        current                         Show current mirror
+        add <name> <url>                Add a new mirror
+        rm <name>                       Delete an existing mirror
+        rename <old_name> <new_name>    Rename a mirror
+        help                            Show this help message
     """
     print(help_text)
 
