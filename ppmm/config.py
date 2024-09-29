@@ -1,6 +1,8 @@
 import subprocess, json
+import pkg_resources
 
-with open("data.json", "r", encoding="utf-8") as f:
+config_path = pkg_resources.resource_filename('ppmm', 'data.json')
+with open(config_path, "r", encoding="utf-8") as f:
     mirrors = json.load(f)["mirrors"]
 
 
@@ -52,6 +54,6 @@ def rename_mirror(old_name, new_name):
 
 
 def save_config():
-    with open("data.json", "w", encoding="utf-8") as f:
+    with open(config_path, "w", encoding="utf-8") as f:
         data = {"mirrors": mirrors}
         json.dump(data, f, indent=4, ensure_ascii=False)

@@ -1,0 +1,9 @@
+{
+    "mirrors": {
+        "pip": "https://pypi.org/simple/",
+        "thu": "https://pypi.tuna.tsinghua.edu.cn/simple/",
+        "ustc": "https://pypi.mirrors.ustc.edu.cn/simple/",
+        "tencent": "http://mirrors.cloud.tencent.com/pypi/simple/",
+        "ali": "https://mirrors.aliyun.com/pypi/simple/"
+    }
+}

@@ -4,8 +4,12 @@ with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 setup(
     name="ppmm",
-    version="1.1.0",
+    version="1.1.2",
     packages=find_packages(),
+    include_package_data=True,
+    package_data={
+        'ppmm': ['data.json'],
+    },
     entry_points={
         'console_scripts': [
             'mm=ppmm.cli:cli',
