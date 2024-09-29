@@ -4,7 +4,7 @@ with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 setup(
     name="ppmm",
-    version="1.0.0",
+    version="1.0.1",
     packages=find_packages(),
     entry_points={
         'console_scripts': [

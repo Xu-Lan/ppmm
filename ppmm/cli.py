@@ -9,9 +9,11 @@ def cli():
 @cli.command()
 def ls():
     mirrors = get_mirrors()
+    output_lines = []
     for name, url in mirrors.items():
-        current = "*" if url == get_current_mirror() else ""
-        print(f"{current.ljust(2)} {name.ljust(10)} {url}")
+        current = "*" if url == get_current_mirror() else " "
+        output_lines.append(f"{current.ljust(2)} {name.ljust(10)} {url}")
+    print("\n".join(output_lines))
 
 @cli.command()
 @click.argument("name")
@@ -27,11 +29,13 @@ def use(name):
 def test():
     mirrors = get_mirrors()
     current = get_current_mirror()
-    key = next((key for key, val in mirrors.items() if val == current), '')
+    key = next((key for key, val in mirrors.items() if val == current), None)
     results = test_mirrors()
+    output_lines = []
     for name, time in results.items():
-        current = "*" if name == key else ""    
-        print(f"{current.ljust(2)} {name.ljust(10)} {time}")
+        current_mark = "*" if name == key else " "
+        output_lines.append(f"{current_mark.ljust(2)} {name.ljust(10)} {time}")
+    print("\n".join(output_lines))
 
 @cli.command()
 def current():

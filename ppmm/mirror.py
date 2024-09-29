@@ -4,7 +4,7 @@ from .config import get_mirrors
 def test_mirrors():
     mirrors = get_mirrors()
     results = {}
-    TIMEOUT = 5
+    TIMEOUT = 3
     for name, url in mirrors.items():
         try:
             start_time = time.time()
