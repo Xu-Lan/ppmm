@@ -1,4 +1,9 @@
-build
-dist
-ppmm.egg-info
-__pycache__
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.egg-info/
+dist/
+build/

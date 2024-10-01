@@ -1,96 +1,100 @@
 # PPMM - Python Pip Mirror Manager
 
-ppmm 是一个命令行工具，用于管理 Python 包管理器（pip）的源。它允许您轻松地列出、切换、测试 pip 源，以及添加、删除和重命名源。
+English documentation: [README.md](https://github.com/yage-zhu/ppmm/blob/main/README.md)
 
-## 特性
+中文文档: [README-zh.md](https://github.com/yage-zhu/ppmm/blob/main/README-zh.md)
 
-- 使用 `mm ls` 列出可用源
-- 使用 `mm use <名称>` 切换源
-- 使用 `mm test` 测试源的响应时间
-- 使用 `mm current` 显示当前使用的源
-- 使用 `mm add <名称> <URL>` 添加新的源
-- 使用 `mm rm <名称>` 删除指定的源
-- 使用 `mm rename <旧名称> <新名称>` 重命名源
-- 使用 `mm help` 显示帮助信息
+ppmm is a command-line tool for managing Python package manager (pip) sources. It allows you to easily list, switch, test pip sources, as well as add, delete, and rename sources.
 
-## 安装
+## Features
 
-您可以使用 pip 安装 ppmm：
+- Use `mm ls` to list available sources
+- Use `mm use <name>` to switch sources
+- Use `mm test` to test the response time of sources
+- Use `mm current` to display the currently used source
+- Use `mm add <name> <URL>` to add a new source
+- Use `mm rm <name>` to delete a specified source
+- Use `mm rename <old name> <new name>` to rename a source
+- Use `mm help` to display help information
+
+## Installation
+
+You can install ppmm using pip:
 
 ```bash
 pip install ppmm
 ```
 
-## 使用方法
+## Usage
 
-### 列出源
+### Listing Sources
 
-列出所有可用源：
+List all available sources:
 
 ```bash
 mm ls
 ```
 
-### 切换源
+### Switching Sources
 
-切换到特定源，例如 阿里云：
+Switch to a specific source, for example, Alibaba Cloud:
 
 ```bash
 mm use ali
 ```
 
-### 测试源
+### Testing Sources
 
-测试所有源的响应时间：
+Test the response time of all sources:
 
 ```bash
 mm test
 ```
 
-### 查看当前源
+### Viewing Current Source
 
-检查当前使用的源：
+Check the currently used source:
 
 ```bash
 mm current
 ```
 
-### 添加新的源
+### Adding a New Source
 
-添加一个新的源：
-
-```bash
-mm add <名称> <URL>
-```
-
-### 删除源
-
-删除一个已存在的源：
+Add a new source:
 
 ```bash
-mm rm <名称>
+mm add <name> <URL>
 ```
 
-### 重命名源
+### Deleting a Source
 
-重命名一个源：
+Delete an existing source:
 
 ```bash
-mm rename <旧名称> <新名称>
+mm rm <name>
 ```
 
-### 帮助
+### Renaming a Source
 
-显示帮助信息：
+Rename a source:
+
+```bash
+mm rename <old name> <new name>
+```
+
+### Help
+
+Display help information:
 
 ```bash
 mm help
 ```
 
-## 贡献
+## Contributing
 
-欢迎贡献！请提出问题或提交拉取请求。
+Contributions are welcome! Please raise issues or submit pull requests.
 
-## 许可证
+## License
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](./LICENSE) 文件。
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/yage-zhu/ppmm/blob/main/LICENSE) file for details.

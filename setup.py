@@ -22,6 +22,7 @@ setup(
     author="XuLan",
     author_email="xuzn@msn.com",
     description="A simple pip mirror management tool",
+    url="https://github.com/yage-zhu/ppmm",
     long_description=long_description,
     long_description_content_type='text/markdown',
     classifiers=[

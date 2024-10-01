@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ppmm"
+version = "1.1.5"
+description = "A simple pip mirror management tool"
+authors = ["XuLan <xuzn@msn.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "^8.1.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
