@@ -4,7 +4,7 @@ English documentation: [README.md](https://github.com/yage-zhu/ppmm/blob/main/RE
 
 中文文档: [README-zh.md](https://github.com/yage-zhu/ppmm/blob/main/README-zh.md)
 
-ppmm 是一个命令行工具，用于管理 Python 包管理器（pip）的源。它允许您轻松地列出、切换、测试 pip 源，以及添加、删除和重命名源。
+ppmm 是一个命令行工具，用于管理 Python 包管理器（pip）的源。它允许您轻松地列出、切换、测试 pip 源，以及添加、修改、删除和重命名源。
 
 ## 特性
 
@@ -65,6 +65,14 @@ mm current
 
 ```bash
 mm add <名称> <URL>
+```
+
+### 修改源
+
+修改镜像的URL:
+
+```bash
+mm edit <name> <URL>
 ```
 
 ### 删除源

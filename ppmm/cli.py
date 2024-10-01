@@ -7,7 +7,8 @@ from .config import (
     rename_mirror,
     test_mirrors,
     use_mirror,
-    print_current_mirror
+    print_current_mirror,
+    edit_mirrors
 )
 
 
@@ -81,6 +82,12 @@ def rename(old_name, new_name):
     """重命名一个已有的镜像"""
     rename_mirror(old_name, new_name)
 
+@cli.command()
+@click.argument("name")
+@click.argument("url")
+def edit(name, url):
+    """修改一个已有的镜像"""
+    edit_mirrors(name, url)
 
 @cli.command()
 def help():
@@ -94,6 +101,7 @@ def help():
         test                            Test all mirrors
         current                         Show current mirror
         add <name> <url>                Add a new mirror
+        edit <name> <url>               Edit a mirror
         rm <name>                       Delete an existing mirror
         rename <old_name> <new_name>    Rename a mirror
         help                            Show this help message

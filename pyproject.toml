@@ -1,18 +1,28 @@
 [tool.poetry]
 name = "ppmm"
-version = "1.1.5"
+version = "1.1.6"
 description = "A simple pip mirror management tool"
 authors = ["XuLan <xuzn@msn.com>"]
+license = "MIT"
 readme = "README.md"
+packages = [
+    { include = "ppmm" }
+]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-click = "^8.1.7"
+python = ">=3.6"
+click = "^8.0"
 
+[tool.poetry.scripts]
+mm = "ppmm.cli:cli"
+ppmm = "ppmm.cli:cli"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.urls]
+"Homepage" = "https://github.com/yage-zhu/ppmm"
 
 [[tool.poetry.source]]
 name = "aliyun"

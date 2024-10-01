@@ -1,8 +1,10 @@
-import subprocess, json, pkg_resources, urllib.request, time, http.client
+import subprocess, json, urllib.request, time, http.client
+from pathlib import Path
 from click import echo, style
 
 Status = {"success": "✅", "fail": "❌", "warning": "⚠️", "info": "ℹ️"}
-config_path = pkg_resources.resource_filename("ppmm", "data.json")
+current_dir = Path(__file__).parent
+config_path = current_dir / "data.json"
 with open(config_path, "r", encoding="utf-8") as f:
     mirrors = json.load(f)["mirrors"]
 
@@ -33,6 +35,7 @@ def get_current_mirror():
     )
     return result
 
+
 def print_current_mirror():
     result = get_current_mirror()
     if result.stdout:
@@ -41,8 +44,12 @@ def print_current_mirror():
             if mirrors[key] == current_mirror:
                 echo(f"{Status['info']} You are using {style(key,fg='green')} mirror.")
                 return key
-        echo(f"{Status['info']} Your current mirror({current_mirror}) is not included in the ppmm mirrors.")
-        echo(f"{Status['info']} Use the mm add {style('<mirror> <url>', fg='green')} command to add your mirrors.")
+        echo(
+            f"{Status['info']} Your current mirror({current_mirror}) is not included in the ppmm mirrors."
+        )
+        echo(
+            f"{Status['info']} Use the mm add {style('<mirror> <url>', fg='green')} command to add your mirrors."
+        )
     if result.stderr:
         echo(style(f"{Status['fail']} {result.stderr}", fg="red"))
 
@@ -111,6 +118,15 @@ def test_mirrors():
         except Exception as e:
             results[name] = f"ERROR ({str(e)})"
     return results
+
+
+def edit_mirrors(name, url):
+    if name not in mirrors:
+        echo(style(f"{Status['fail']} The mirror '{name}' is not found.", fg="red"))
+        return
+    mirrors[name] = url
+    save_config()
+    echo(f"{Status['success']}  The mirror '{name}' has been edited successfully.")
 
 
 def save_config():

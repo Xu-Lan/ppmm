@@ -4,7 +4,7 @@ English documentation: [README.md](https://github.com/yage-zhu/ppmm/blob/main/RE
 
 中文文档: [README-zh.md](https://github.com/yage-zhu/ppmm/blob/main/README-zh.md)
 
-ppmm is a command-line tool for managing Python package manager (pip) sources. It allows you to easily list, switch, test pip sources, as well as add, delete, and rename sources.
+ppmm is a command-line tool for managing Python package manager (pip) sources. It allows you to easily list, switch, test pip sources, as well as add, edit,delete, and rename sources.
 
 ## Features
 
@@ -65,6 +65,14 @@ Add a new source:
 
 ```bash
 mm add <name> <URL>
+```
+
+### Edit a mirror
+
+Edit the URL of a mirror:
+
+```bash
+mm edit <name> <URL>
 ```
 
 ### Deleting a Source
