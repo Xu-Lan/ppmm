@@ -4,7 +4,7 @@ with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 setup(
     name="ppmm",
-    version="1.1.6",
+    version="1.1.8",
     packages=find_packages(),
     include_package_data=True,
     package_data={

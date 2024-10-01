@@ -1,5 +1,6 @@
 import subprocess, json, urllib.request, time, http.client
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from click import echo, style
 
 Status = {"success": "✅", "fail": "❌", "warning": "⚠️", "info": "ℹ️"}
@@ -98,28 +99,6 @@ def rename_mirror(old_name, new_name):
     )
 
 
-def test_mirrors():
-    mirrors = get_mirrors()
-    results = {}
-    TIMEOUT = 3
-    for name, url in mirrors.items():
-        try:
-            start_time = time.time()
-            with urllib.request.urlopen(url, timeout=TIMEOUT) as response:
-                end_time = time.time()
-                latency = str(int((end_time - start_time) * 1000)) + " ms"
-                results[name] = latency
-        except urllib.error.URLError as e:
-            results[name] = f"timeout (Fetch timeout over {TIMEOUT * 1000} ms)"
-        except http.client.RemoteDisconnected as e:
-            results[name] = (
-                f"disconnected (Server closed the connection without response)"
-            )
-        except Exception as e:
-            results[name] = f"ERROR ({str(e)})"
-    return results
-
-
 def edit_mirrors(name, url):
     if name not in mirrors:
         echo(style(f"{Status['fail']} The mirror '{name}' is not found.", fg="red"))
@@ -133,3 +112,39 @@ def save_config():
     with open(config_path, "w", encoding="utf-8") as f:
         data = {"mirrors": mirrors}
         json.dump(data, f, indent=4, ensure_ascii=False)
+
+
+def test_mirror(name, url, timeout):
+    try:
+        start_time = time.time()
+        with urllib.request.urlopen(url, timeout=timeout) as response:
+            end_time = time.time()
+            latency = int((end_time - start_time) * 1000)
+            return f"{latency} ms"
+    except urllib.error.URLError as e:
+        return f"timeout (Fetch timeout over {timeout * 1000} ms)"
+    except http.client.RemoteDisconnected as e:
+        return f"disconnected (Server closed the connection without response)"
+    except Exception as e:
+        return f"ERROR ({str(e)})"
+
+
+def test_mirrors():
+    timeout = 5
+    results = {}
+    # 使用 ThreadPoolExecutor 创建一个线程池
+    with ThreadPoolExecutor(max_workers=len(mirrors)) as executor:
+        # 提交任务到线程池
+        future_to_mirror = {
+            executor.submit(test_mirror, name, url, timeout): name
+            for name, url in mirrors.items()
+        }
+        for future in as_completed(future_to_mirror):
+            name = future_to_mirror[future]
+            try:
+                # 获取任务的结果
+                results[name] = future.result()
+            except Exception as e:
+                # 如果有异常发生，记录异常信息
+                results[name] = f"ERROR ({str(e)})"
+    return results

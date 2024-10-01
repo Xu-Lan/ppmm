@@ -1,8 +1,8 @@
 # PPMM - Python Pip Mirror Manager
 
-English documentation: [README.md](https://github.com/yage-zhu/ppmm/blob/main/README.md)
+English documentation: [README.md](https://github.com/Xu-Lan/ppmm/ppmm/blob/main/README.md)
 
-中文文档: [README-zh.md](https://github.com/yage-zhu/ppmm/blob/main/README-zh.md)
+中文文档: [README-zh.md](https://github.com/Xu-Lan/ppmm/ppmm/blob/main/README-zh.md)
 
 ppmm 是一个命令行工具，用于管理 Python 包管理器（pip）的源。它允许您轻松地列出、切换、测试 pip 源，以及添加、修改、删除和重命名源。
 
@@ -13,6 +13,7 @@ ppmm 是一个命令行工具，用于管理 Python 包管理器（pip）的源�
 - 使用 `mm test` 测试源的响应时间
 - 使用 `mm current` 显示当前使用的源
 - 使用 `mm add <名称> <URL>` 添加新的源
+- 使用 `mm edit <名称> <URL>` 修改指定的源
 - 使用 `mm rm <名称>` 删除指定的源
 - 使用 `mm rename <旧名称> <新名称>` 重命名源
 - 使用 `mm help` 显示帮助信息
@@ -105,4 +106,4 @@ mm help
 
 ## 许可证
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](https://github.com/yage-zhu/ppmm/blob/main/LICENSE) 文件。
+本项目采用 MIT 许可证 - 详见 [LICENSE](https://github.com/Xu-Lan/ppmm/ppmm/blob/main/LICENSE) 文件。

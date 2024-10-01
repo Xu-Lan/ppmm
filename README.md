@@ -1,8 +1,8 @@
 # PPMM - Python Pip Mirror Manager
 
-English documentation: [README.md](https://github.com/yage-zhu/ppmm/blob/main/README.md)
+English documentation: [README.md](https://github.com/Xu-Lan/ppmm/blob/main/README.md)
 
-中文文档: [README-zh.md](https://github.com/yage-zhu/ppmm/blob/main/README-zh.md)
+中文文档: [README-zh.md](https://github.com/Xu-Lan/ppmm/blob/main/README-zh.md)
 
 ppmm is a command-line tool for managing Python package manager (pip) sources. It allows you to easily list, switch, test pip sources, as well as add, edit,delete, and rename sources.
 
@@ -13,6 +13,7 @@ ppmm is a command-line tool for managing Python package manager (pip) sources. I
 - Use `mm test` to test the response time of sources
 - Use `mm current` to display the currently used source
 - Use `mm add <name> <URL>` to add a new source
+- Use `mm edit <名称> <URL>` to modify a specified source
 - Use `mm rm <name>` to delete a specified source
 - Use `mm rename <old name> <new name>` to rename a source
 - Use `mm help` to display help information
@@ -105,4 +106,4 @@ Contributions are welcome! Please raise issues or submit pull requests.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/yage-zhu/ppmm/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Xu-Lan/ppmm/blob/main/LICENSE) file for details.
