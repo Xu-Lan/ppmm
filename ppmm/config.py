@@ -132,19 +132,11 @@ def test_mirror(name, url, timeout):
 def test_mirrors():
     timeout = 5
     results = {}
-    # 使用 ThreadPoolExecutor 创建一个线程池
     with ThreadPoolExecutor(max_workers=len(mirrors)) as executor:
-        # 提交任务到线程池
-        future_to_mirror = {
-            executor.submit(test_mirror, name, url, timeout): name
-            for name, url in mirrors.items()
-        }
-        for future in as_completed(future_to_mirror):
-            name = future_to_mirror[future]
-            try:
-                # 获取任务的结果
-                results[name] = future.result()
-            except Exception as e:
-                # 如果有异常发生，记录异常信息
-                results[name] = f"ERROR ({str(e)})"
+        mirror_items = list(mirrors.items())
+        futures = executor.map(
+            lambda item: test_mirror(item[0], item[1], timeout), mirror_items
+        )
+        for (name, _), result in zip(mirror_items, futures):
+            results[name] = result
     return results

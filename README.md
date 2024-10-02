@@ -4,18 +4,18 @@ English documentation: [README.md](https://github.com/Xu-Lan/ppmm/blob/main/READ
 
 中文文档: [README-zh.md](https://github.com/Xu-Lan/ppmm/blob/main/README-zh.md)
 
-ppmm is a command-line tool for managing Python package manager (pip) sources. It allows you to easily list, switch, test pip sources, as well as add, edit,delete, and rename sources.
+ppmm is a command-line tool for managing Python package manager (pip) mirrors. It allows you to easily list、switch、 test pip mirrors, as well as add、 edit、delete、and rename mirrors.
 
 ## Features
 
-- Use `mm ls` to list available sources
-- Use `mm use <name>` to switch sources
-- Use `mm test` to test the response time of sources
-- Use `mm current` to display the currently used source
-- Use `mm add <name> <URL>` to add a new source
-- Use `mm edit <名称> <URL>` to modify a specified source
-- Use `mm rm <name>` to delete a specified source
-- Use `mm rename <old name> <new name>` to rename a source
+- Use `mm ls` to list available mirrors
+- Use `mm use <name>` to switch mirrors
+- Use `mm test` to test the response time of mirrors
+- Use `mm current` to display the currently used mirror
+- Use `mm add <name> <URL>` to add a new mirror
+- Use `mm edit <name> <URL>` to modify a specified mirror
+- Use `mm rm <name>` to delete a specified mirror
+- Use `mm rename <old name> <new name>` to rename a mirror
 - Use `mm help` to display help information
 
 ## Installation
@@ -28,41 +28,41 @@ pip install ppmm
 
 ## Usage
 
-### Listing Sources
+### Listing mirrors
 
-List all available sources:
+List all available mirrors:
 
 ```bash
 mm ls
 ```
 
-### Switching Sources
+### Switching mirrors
 
-Switch to a specific source, for example, Alibaba Cloud:
+Switch to a specific mirror, for example，Alibaba Cloud:
 
 ```bash
 mm use ali
 ```
 
-### Testing Sources
+### Testing mirrors
 
-Test the response time of all sources:
+Test the response time of all mirrors:
 
 ```bash
 mm test
 ```
 
-### Viewing Current Source
+### Viewing Current mirror
 
-Check the currently used source:
+Check the currently used mirror:
 
 ```bash
 mm current
 ```
 
-### Adding a New Source
+### Adding a New mirror
 
-Add a new source:
+Add a new mirror:
 
 ```bash
 mm add <name> <URL>
@@ -76,17 +76,17 @@ Edit the URL of a mirror:
 mm edit <name> <URL>
 ```
 
-### Deleting a Source
+### Deleting a mirror
 
-Delete an existing source:
+Delete an existing mirror:
 
 ```bash
 mm rm <name>
 ```
 
-### Renaming a Source
+### Renaming a mirror
 
-Rename a source:
+Rename a mirror:
 
 ```bash
 mm rename <old name> <new name>
