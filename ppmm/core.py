@@ -1,14 +1,16 @@
+import ctypes
 import http.client
 import json
 import socket
 import subprocess
+import sys
 import time
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-# 保留原有的状态符号
+# 状态符号
 Status = {"success": "✅", "fail": "❌", "warning": "⚠️", "info": "ℹ️"}
 
 
@@ -24,6 +26,20 @@ class Colors:
     RESET = "\033[0m"
     BOLD = "\033[1m"
 
+
+def enable_ansi_colors():
+    """启用ANSI转义码"""
+    if sys.platform == "win32":
+        try:
+            kernel32 = ctypes.windll.kernel32
+            if not kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7):
+                print(
+                    f"{Status['warning']} 警告: ANSI转义码启用失败, 可能导致命令行输出显示不正常"
+                )
+        except Exception as e:
+            print(
+                f"{Status['warning']} 警告: ANSI转义码启用时出错({str(e)}), 可能导致命令行输出显示不正常"
+            )
 
 current_dir = Path(__file__).parent
 config_path = current_dir / "data.json"
@@ -222,7 +238,7 @@ def test():
     results = {}
     current_mirror = get_current_mirror()
 
-    echo(f"{Status['info']} 正在测试镜像源响应速度(超时: {timeout}秒)...", Colors.BLUE)
+    echo(f"{Status['info']} 正在测试镜像源响应速度(超时: {timeout}秒)...", Colors.GREEN)
 
     with ThreadPoolExecutor(max_workers=len(mirrors)) as executor:
         futures = {

@@ -1,9 +1,21 @@
 import argparse
 
-from .core import add, current, edit, help, ls, rename, rm, test, use
+from .core import (
+    add,
+    current,
+    edit,
+    enable_ansi_colors,
+    help,
+    ls,
+    rename,
+    rm,
+    test,
+    use,
+)
 
 
 def main():
+    enable_ansi_colors()
     parser = argparse.ArgumentParser(prog="mm", description="Python Pip 镜像源管理工具")
     subparsers = parser.add_subparsers(dest="command", help="可用命令")
 
