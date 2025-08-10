@@ -1,22 +1,12 @@
 # PPMM - Python Pip Mirror Manager
 
-ppmm is a command-line tool for managing Python package manager (pip) mirrors. It allows you to easily list、switch、 test pip mirrors, as well as add、 edit、delete、and rename mirrors.
+🌟 **PPMM** is a powerful command-line tool for managing Python package manager (pip) sources. It allows you to easily list, switch, test pip sources, and also add, modify, delete, and rename sources.
 
-## Features
-
-- Use `mm ls` to list available mirrors
-- Use `mm use <name>` to switch mirrors
-- Use `mm test` to test the response time of mirrors
-- Use `mm current` to display the currently used mirror
-- Use `mm add <name> <URL>` to add a new mirror
-- Use `mm edit <name> <URL>` to modify a specified mirror
-- Use `mm rm <name>` to delete a specified mirror
-- Use `mm rename <old name> <new name>` to rename a mirror
-- Use `mm help` to display help information
+[简体中文](./README.md) | **English**
 
 ## Installation
 
-You can install ppmm using pip:
+🚀 Install PPMM using pip:
 
 ```bash
 pip install ppmm
@@ -24,83 +14,20 @@ pip install ppmm
 
 ## Usage
 
-### Listing mirrors
+- 📝 Use `mm ls` to quickly list available sources
+- 🔗 Use `mm use <name>` to easily switch sources
+- ⏱️ Use `mm test` to test the response time of sources
+- 🎯 Use `mm current` to display the currently used source
+- ➕ Use `mm add <name> <URL>` to add a new source
+- ✏️ Use `mm edit <name> <URL>` to modify a specified source
+- ❌ Use `mm rm <name>` to delete a specified source
+- 🔁 Use `mm rename <old name> <new name>` to rename a source
+- ℹ️ Use `mm help` to display help information
 
-List all available mirrors:
+## Contribution
 
-```bash
-mm ls
-```
-
-### Switching mirrors
-
-Switch to a specific mirror, for example，Alibaba Cloud:
-
-```bash
-mm use ali
-```
-
-### Testing mirrors
-
-Test the response time of all mirrors:
-
-```bash
-mm test
-```
-
-### Viewing Current mirror
-
-Check the currently used mirror:
-
-```bash
-mm current
-```
-
-### Adding a New mirror
-
-Add a new mirror:
-
-```bash
-mm add <name> <URL>
-```
-
-### Edit a mirror
-
-Edit the URL of a mirror:
-
-```bash
-mm edit <name> <URL>
-```
-
-### Deleting a mirror
-
-Delete an existing mirror:
-
-```bash
-mm rm <name>
-```
-
-### Renaming a mirror
-
-Rename a mirror:
-
-```bash
-mm rename <old name> <new name>
-```
-
-### Help
-
-Display help information:
-
-```bash
-mm help
-```
-
-## Contributing
-
-Contributions are welcome! Please raise issues or submit pull requests.
+🎉 Contributions are welcome! Feel free to raise issues or submit pull requests.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
